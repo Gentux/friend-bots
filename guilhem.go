@@ -5,57 +5,58 @@ import "fmt"
 import irc "github.com/fluffle/goirc/client"
 import "math/rand"
 
-const channel_name = "#poc_beta_guilhem"
-const channel_nick = "Guilhem"
+const channelName = "#poc_beta_guilhem"
+const channelNick = "Guilhem"
 
 func main() {
-    cfg := irc.NewConfig(channel_nick)
-    cfg.SSL = true
-    cfg.SSLConfig = &tls.Config{InsecureSkipVerify: true}
-    //cfg.Server = "irc.freenode.net:7000"
-    cfg.Server = "irc.corp.cloudwatt.com:6697"
-    cfg.Pass = "clo45udwatt"
-    cfg.NewNick = func(n string) string { return n + "^" }
-    c := irc.Client(cfg)
+	cfg := irc.NewConfig(channelNick)
+	cfg.SSL = true
+	cfg.SSLConfig = &tls.Config{InsecureSkipVerify: true}
+	//cfg.Server = "irc.freenode.net:7000"
+	cfg.Server = "irc.corp.cloudwatt.com:6697"
+	cfg.Pass = "clo45udwatt"
+	cfg.NewNick = func(n string) string { return n + "^" }
+	c := irc.Client(cfg)
 
-    // Add handlers to do things here!
-    // e.g. join a channel on connect.
-    c.HandleFunc("connected", join_channel)
+	// Add handlers to do things here!
+	// e.g. join a channel on connect.
+	c.HandleFunc("connected", join_channel)
 
-    c.HandleFunc("privmsg", handle_message)
+	c.HandleFunc("privmsg", handle_message)
 
-    // And a signal on disconnect
-    quit := make(chan bool)
-    c.HandleFunc("disconnected",
-        func(conn *irc.Conn, line *irc.Line) { quit <- true })
+	// And a signal on disconnect
+	quit := make(chan bool)
+	c.HandleFunc("disconnected",
+		func(conn *irc.Conn, line *irc.Line) { quit <- true })
 
-    // Tell client to connect.
-    if err := c.Connect(); err != nil {
-        fmt.Println("Connection error: %s\n", err)
-    } else {
-        fmt.Println("Connected")
-    }
+	// Tell client to connect.
+	if err := c.Connect(); err != nil {
+		fmt.Println("Connection error: %s\n", err)
+	} else {
+		fmt.Println("Connected")
+	}
 
-    // Wait for disconnect
-    <-quit
+	// Wait for disconnect
+	<-quit
 }
 
-func join_channel(conn *irc.Conn, line *irc.Line) {
-    conn.Join(channel_name)
+func joinChannel(conn *irc.Conn, line *irc.Line) {
+	conn.Join(channelName)
 }
 
-func handle_message(conn *irc.Conn, line *irc.Line) {
-    //rand.Seed(42)
-    answers := []string{
-        "Mais ! C'est de la merde !",
-        "On doit le réecrire en GO ça !",
-        "C'est moi le plus fort, je suis SURPUISSANT !",
-        "Je parle fort… J'ai du charisme, c'est tout !",
-        "Yves, Yves, YVES ! Laisse nous parler",
-        "Mais c'est pas du tout ça le probléme, en fait […]",
-        "J'ai un super nom pour le deuxiéme DC ! WATTOO WATTOO",
-    }
-    if rand.Intn(10) < 2 {
-        conn.Privmsg(channel_name, answers[rand.Intn(len(answers))])
-    }
+func handleMessage(conn *irc.Conn, line *irc.Line) {
+	//rand.Seed(42)
+	answers := []string{
+		"Mais ! C'est de la merde !",
+		"On doit le réecrire en GO ça !",
+		"C'est moi le plus fort, je suis SURPUISSANT !",
+		"Je parle fort… J'ai du charisme, c'est tout !",
+		"Yves, Yves, YVES ! Laisse nous parler",
+		"Mais c'est pas du tout ça le probléme, en fait […]",
+		"J'ai un super nom pour le deuxiéme DC ! WATTOO WATTOO",
+		"Attends, y a mon nom sur un t-shirt s'il te plait !",
+	}
+	if rand.Intn(10) < 2 {
+		conn.Privmsg(channel_name, answers[rand.Intn(len(answers))])
+	}
 }
