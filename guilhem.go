@@ -20,9 +20,9 @@ func main() {
 
 	// Add handlers to do things here!
 	// e.g. join a channel on connect.
-	c.HandleFunc("connected", join_channel)
+	c.HandleFunc("connected", joinChannel)
 
-	c.HandleFunc("privmsg", handle_message)
+	c.HandleFunc("privmsg", handleMessage)
 
 	// And a signal on disconnect
 	quit := make(chan bool)
@@ -57,6 +57,6 @@ func handleMessage(conn *irc.Conn, line *irc.Line) {
 		"Attends, y a mon nom sur un t-shirt s'il te plait !",
 	}
 	if rand.Intn(10) < 2 {
-		conn.Privmsg(channel_name, answers[rand.Intn(len(answers))])
+		conn.Privmsg(channelName, answers[rand.Intn(len(answers))])
 	}
 }
