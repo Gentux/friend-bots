@@ -51,6 +51,9 @@ func handle_message(conn *irc.Conn, line *irc.Line) {
         "On doit le réecrire en GO ça !",
         "C'est moi le plus fort, je suis SURPUISSANT !",
         "Je parle fort… J'ai du charisme, c'est tout !",
+        "Yves, Yves, YVES ! Laisse nous parler",
+        "Mais c'est pas du tout ça le probléme, en fait […]",
+        "J'ai un super nom pour le deuxiéme DC ! WATTOO WATTOO",
     }
     if rand.Intn(10) < 2 {
         conn.Privmsg(channel_name, answers[rand.Intn(len(answers))])
