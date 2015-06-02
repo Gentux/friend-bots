@@ -19,8 +19,6 @@ go get github.com/gentux/friend-bots
 
 * [Twitter](http://twitter.com/Romain_Soufflet)
 * [Github](http://github.com/Gentux)
-* [http://romain.soufflet.io](http://romain.soufflet.io)
-
 
 ## Legal notices ##
 
