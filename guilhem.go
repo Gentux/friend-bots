@@ -5,16 +5,17 @@ import "fmt"
 import irc "github.com/fluffle/goirc/client"
 import "math/rand"
 
-const channelName = "#poc_beta_guilhem"
-const channelNick = "Guilhem"
+const (
+	channelName = "#poc_beta_guilhem"
+	channelNick = "GuilhemBot"
+)
 
 func main() {
 	cfg := irc.NewConfig(channelNick)
 	cfg.SSL = true
-	cfg.SSLConfig = &tls.Config{InsecureSkipVerify: true}
-	//cfg.Server = "irc.freenode.net:7000"
-	cfg.Server = "irc.corp.cloudwatt.com:6697"
-	cfg.Pass = "clo45udwatt"
+	cfg.Server = "irc.freenode.net:7000"
+	//cfg.Pass = "secret"
+	//cfg.SSLConfig = &tls.Config{InsecureSkipVerify: true}
 	cfg.NewNick = func(n string) string { return n + "^" }
 	c := irc.Client(cfg)
 
