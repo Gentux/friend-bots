@@ -11,7 +11,19 @@ Install friend-bots with the following command :
 
 ```
 go get github.com/gentux/friend-bots
+
+friend_bots
 ```
+
+If it doesn't work, it's normal, I havn't tested it yet.
+Don't hesitate to tell me what's wrong and I'll do whatever I can to unlock the situation
+
+## Why GO ##
+
+There is two main reason I started using go :
+
+* One of our coworker, who was the inspiration for this work, talk about GO every minutes of every day
+* It's a good little project to learn about the language ant its ecosystem
 
 ## Creator ##
 
