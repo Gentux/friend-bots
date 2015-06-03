@@ -3,12 +3,9 @@ package main
 import irc "github.com/fluffle/goirc/client"
 import "math/rand"
 
-const (
-	channelName = "#poc_beta_guilhem"
-	channelNick = "GuilhemBot"
-)
+const channelName = "#poc_beta_test"
 
-func handleMessage(conn *irc.Conn, line *irc.Line) {
+func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 	answers := []string{
 		"Mais ! C'est de la merde !",
 		"On doit le réecrire en GO ça !",
@@ -25,5 +22,9 @@ func handleMessage(conn *irc.Conn, line *irc.Line) {
 }
 
 func main() {
-	connect(channelName, channelNick, handleMessage)
+	// Guilhem
+	go connect(channelName, "GuilhemBot", handleMessageGuilhem)
+
+	// Gentux (for concurency tests)
+	//connect(channelName, "GentuxBot", handleMessageGuilhem)
 }
