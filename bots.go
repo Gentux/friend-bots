@@ -6,6 +6,7 @@ import "regexp"
 
 const channelName = "#poc_beta_test"
 
+// Guilhem Bot core
 func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 	technicalAnswers := []string{
 		"Mais ! C'est de la merde !",
@@ -23,7 +24,7 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 
 	openstackRegexp, _ := regexp.Compile("openstack|keystone|deploy|datacenter")
 	technicalPoint := openstackRegexp.FindString(line.Text())
-	if technicalPoint != ""  {
+	if technicalPoint != "" {
 		conn.Privmsg(channelName, technicalAnswers[rand.Intn(len(technicalAnswers))])
 	} else if rand.Intn(20) < 2 {
 		conn.Privmsg(channelName, personalAnswers[rand.Intn(len(personalAnswers))])
