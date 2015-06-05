@@ -13,6 +13,7 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		"On doit le réecrire en GO ça !",
 		"Mais c'est pas du tout ça le problème, en fait […]",
 		"C'est fait roulé sous les aisselles",
+		"I have no *FRAKING* idea !",
 	}
 
 	personalAnswers := []string{
@@ -26,10 +27,18 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 
 	openstackRegexp, _ := regexp.Compile("openstack|keystone|deploy|datacenter")
 	technicalPoint := openstackRegexp.FindString(line.Text())
+	randomLine := rand.Intn(20)
+
 	if technicalPoint != "" {
-		conn.Privmsg(channelName, technicalAnswers[rand.Intn(len(technicalAnswers))])
-	} else if rand.Intn(20) < 2 {
-		conn.Privmsg(channelName, personalAnswers[rand.Intn(len(personalAnswers))])
+		conn.Privmsg(
+			channelName,
+			technicalAnswers[rand.Intn(len(technicalAnswers))],
+		)
+	} else if randomLine < 3 {
+		conn.Privmsg(
+			channelName,
+			personalAnswers[rand.Intn(len(personalAnswers))],
+		)
 	}
 }
 
