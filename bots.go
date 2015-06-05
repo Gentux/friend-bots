@@ -12,6 +12,7 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		"Mais ! C'est de la merde !",
 		"On doit le réecrire en GO ça !",
 		"Mais c'est pas du tout ça le probléme, en fait […]",
+		"C'est fait roulé sous les aisselles",
 	}
 
 	personalAnswers := []string{
@@ -20,6 +21,7 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		"Yves, Yves, YVES ! Laisse nous parler",
 		"J'ai un super nom pour le deuxiéme DC ! WATTOO WATTOO",
 		"Attends, y a mon nom sur un t-shirt s'il te plait !",
+		"J'me vois pas me priver de bonheur parce que les autres veulent une vie de merde",
 	}
 
 	openstackRegexp, _ := regexp.Compile("openstack|keystone|deploy|datacenter")
