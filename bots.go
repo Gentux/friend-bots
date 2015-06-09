@@ -16,6 +16,7 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		"I have no *FRAKING* idea !",
 		"NAN ! Je suis en copie, je suis perché !",
 		"je veux pas devenir un SPOF",
+		"'Tain IRC ! Protocole de merde ! Je vais mettre en place un XM Peuh Peuh",
 	}
 
 	personalAnswers := []string{
@@ -26,12 +27,10 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		"Attends, y'a mon nom sur un t-shirt s'il-te-plaît !",
 		"J'me vois pas me priver de bonheur parce que les autres veulent une vie de merde",
 		"«Vous ne pouvez *résoudre* un problème avec le *même* type de *pensée* qui a créé le problème» A.Einstein",
-		//"'Tain IRC ! Protocole de merde, je vais installer un XM Peuh Peuh",
-		//"'Tain IRC ! Protocole de merde ! Je vais mettre en place un XM Peuh Peuh",
 		"Il faut que je me sente... Important",
 	}
 
-	openstackRegexp, _ := regexp.Compile("openstack|keystone|deploy|datacenter")
+	openstackRegexp, _ := regexp.Compile("jarvis|openstack|keystone|deploy|datacenter|bug|meeting")
 	technicalPoint := openstackRegexp.FindString(line.Text())
 	randomLine := rand.Intn(20)
 
