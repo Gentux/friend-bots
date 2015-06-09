@@ -25,6 +25,7 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		"J'ai un super nom pour le deuxième DC ! WATTOO WATTOO",
 		"Attends, y'a mon nom sur un t-shirt s'il-te-plaît !",
 		"J'me vois pas me priver de bonheur parce que les autres veulent une vie de merde",
+		"«Vous ne pouvez *résoudre* un problème avec le *même* type de *pensée* qui a créé le problème» A.Einstein",
 		//"'Tain IRC ! Protocole de merde, je vais installer un XM Peuh Peuh",
 	}
 
