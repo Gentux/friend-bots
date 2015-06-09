@@ -26,6 +26,8 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		"Attends, y'a mon nom sur un t-shirt s'il-te-plaît !",
 		"J'me vois pas me priver de bonheur parce que les autres veulent une vie de merde",
 		//"'Tain IRC ! Protocole de merde, je vais installer un XM Peuh Peuh",
+		//"'Tain IRC ! Protocole de merde ! Je vais mettre en place un XM Peuh Peuh",
+		"Il faut que je me sente... Important",
 	}
 
 	openstackRegexp, _ := regexp.Compile("openstack|keystone|deploy|datacenter")
