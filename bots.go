@@ -13,14 +13,14 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		"On doit le réecrire en GO ça !",
 		"Mais c'est pas du tout ça le problème, en fait […]",
 		"C'est fait roulé sous les aisselles",
-		"I have no *FRAKING* idea !",
+		"I have no *FRAKING* idea!",
 		"NAN ! Je suis en copie, je suis perché !",
 		"je veux pas devenir un SPOF",
 		"'Tain IRC ! Protocole de merde ! Je vais mettre en place un XM Peuh Peuh",
 	}
 
 	personalAnswers := []string{
-		"C'est moi le plus fort, je suis SURPUISSANT !",
+		"Mais j'suis pas super fort, j'suis mieux qu'ça même. J'suis surpuissant.",
 		"Je parle fort… J'ai du charisme, c'est tout !",
 		"Yves, Yves, YVES ! Laisse nous parler",
 		"J'ai un super nom pour le deuxième DC ! WATTOO WATTOO",
