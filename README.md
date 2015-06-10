@@ -1,5 +1,5 @@
-Friend Bots
-===========
+# Friend Bots
+[![Build Status](https://travis-ci.org/Gentux/friend-bots.png)](https://travis-ci.org/Gentux/friend-bots)
 
 ## Description ##
 
