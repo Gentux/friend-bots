@@ -17,6 +17,8 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		"NAN ! Je suis en copie, je suis perché !",
 		"je veux pas devenir un SPOF",
 		"'Tain IRC ! Protocole de merde ! Je vais mettre en place un XM Peuh Peuh",
+		"Les mecs de chez [...] ont rien compris...",
+		"Non mais c'est sooooo 2011",
 	}
 
 	personalAnswers := []string{
