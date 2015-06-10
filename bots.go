@@ -82,7 +82,7 @@ func handleMessageYgbot(conn *irc.Conn, line *irc.Line) {
 		"t'ain d'clavire!",
 	}
 
-	openstackRegexp, _ := regexp.Compile("openstack|réseau|network|bug")
+	openstackRegexp, _ := regexp.Compile("javascript|JavaScript|bug|git")
 	technicalPoint := openstackRegexp.FindString(line.Text())
 	randomLine := rand.Intn(30)
 
