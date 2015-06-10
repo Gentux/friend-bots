@@ -4,14 +4,17 @@ go:
 - 1.4
 - tip
 before_deploy:
-- go get github.com/laher/goxc
-- "/home/travis/gopath/bin/goxc -pv=${TRAVIS_TAG} -d release"
+- go get github.com/mitchellh/gox
+- gox -build-toolchain
+- gox -output="bin/friend_bots.{{.OS}}-{{.Arch}}"
+  #- "/home/travis/gopath/bin/goxc -pv=${TRAVIS_TAG} -d release"
 deploy:
   provider: releases
   api_key:
     secure: UWWRUXG64tiOHyD9+bbv/ynfRMzIuYUYG5GDsfwda9Reo7I25oDIgit3o0mx4o5jK2HyprVwevSNK5lNZmX9MzmBqugoQG2qSiNcMs4FRsu6PsQ2dGKyxNr2ytCqWRwta99gKw8AUnddYN/wv2FndHi0j7Q7er5j3BzAr4e8EycvJKSVwjph/FoToNXkaZhMHF75tZYUaJ+lzcQhwTV+5hnHwTiU/QffD5XHNprT790QptxeD5hzUrNHqoqPxcXw/VUXXdbQYCTN8NbCm0LBB3CT7hzKgcnU4emGK6QdSa2Ru3FlKVynVchcsCt4AzYRPZqo32rbBym7n50jkZFdnRnDZonVweGYTiIe7GawqAhiTRLp0pYC16ljf4tD3GDDaCZemwFe0Mc8vPLNVHKm6FwNeY1OJwTMD8d6fz95Y4t+bB8aK3thCCGNv6imOVNkG1TmcMCBNqwDSkQvzM9jOu3peZ4V0TXIY17jxGij3fJ8khTRJaUi5MDZFEKnfzKbV/DeLXhN4be35WgQYkHER51xEK7GlFV6qRyJZkQmocINWY0wCO9M2uvb6y9P3+36XN8JLmYpVGSS/doGRe4zIJlSJ828CXZV31yf+LCZQiHsqZW7sJt4gNT4KQNQ5U6+AczocZ8Vyx2qc8O/eMx/MPSDa8xjwH3KBxC34voX9HI=
-  file: release/*
+  file: bin/*
   file-glob: true
+  skip_cleanup: true
   on:
     go: '1.4'
     tags: true
