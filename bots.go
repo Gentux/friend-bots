@@ -36,7 +36,7 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 
 	openstackRegexp, _ := regexp.Compile("jarvis|openstack|keystone|deploy|datacenter|bug|meeting|horizon|glance|cinder|contrail|coreos|dc|nova|neutron")
 	technicalPoint := openstackRegexp.FindString(line.Text())
-	randomLine := rand.Intn(20)
+	randomLine := rand.Intn(30)
 
 	if technicalPoint != "" {
 		conn.Privmsg(
