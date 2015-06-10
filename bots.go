@@ -25,6 +25,7 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		"Mais j'suis pas super fort, j'suis mieux qu'ça même. J'suis surpuissant.",
 		"Je parle fort… J'ai du charisme, c'est tout !",
 		"Yves, Yves, YVES ! Laisse nous parler",
+		"Yves, Yves, YVES ! Après le daily stp !",
 		"J'ai un super nom pour le deuxième DC ! WATTOO WATTOO",
 		"Attends, y'a mon nom sur un t-shirt s'il-te-plaît !",
 		"J'me vois pas me priver de bonheur parce que les autres veulent une vie de merde",
