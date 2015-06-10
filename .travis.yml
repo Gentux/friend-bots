@@ -13,5 +13,6 @@ deploy:
   file: release/*
   file-glob: true
   on:
+    go: '1.4'
     tags: true
     repo: Gentux/friend-bots
