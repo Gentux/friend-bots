@@ -52,6 +52,68 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 	}
 }
 
+
+// ygbo Bot core
+func handleMessageYgbot(conn *irc.Conn, line *irc.Line) {
+	technicalAnswers := []string{
+		"Ça a été codé avec le cul!",
+		"C'est fait par un mec qu'a le QI d'un annus artificiel!",
+		"J'y crois pas! jamais vu une horreur pareille!",
+	}
+
+	personalAnswers := []string{
+		"Hein?",
+		"Hein?",
+		"Hein?",
+		"Tu disait?",
+	}
+
+	personalAnswersFix := []string{
+		"",
+		"",
+		"",
+		"s/disait/disias/",
+	}
+
+	personalAnswersFixFix := []string{
+		"",
+		"",
+		"",
+		"t'ain d'clavire!",
+	}
+
+	openstackRegexp, _ := regexp.Compile("openstack|réseau|network|bug")
+	technicalPoint := openstackRegexp.FindString(line.Text())
+	randomLine := rand.Intn(30)
+
+	if technicalPoint != "" {
+		randomAnswer := rand.Intn(len(technicalAnswers))
+		conn.Privmsg(
+			channelName,
+			technicalAnswers[randomAnswer],
+		)
+	} else if randomLine < 3 {
+		randomAnswer := rand.Intn(len(personalAnswers))
+		conn.Privmsg(
+			channelName,
+			personalAnswers[randomAnswer],
+		)
+		if personalAnswersFix[randomAnswer] != "" {
+			conn.Privmsg(
+				channelName,
+				personalAnswersFix[randomAnswer],
+			)
+			if personalAnswersFixFix[randomAnswer] != "" {
+				conn.Privmsg(
+					channelName,
+					personalAnswersFixFix[randomAnswer],
+				)
+			}
+		}
+	}
+}
+
+
 func main() {
 	// Gentux (for concurency tests)
 	//go connect(channelName, "GentuxBot", handleMessageGuilhem)
