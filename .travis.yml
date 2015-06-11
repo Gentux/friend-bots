@@ -7,7 +7,6 @@ before_deploy:
 - go get github.com/mitchellh/gox
 - gox -build-toolchain
 - gox -output="bin/friend_bots.{{.OS}}-{{.Arch}}"
-  #- "/home/travis/gopath/bin/goxc -pv=${TRAVIS_TAG} -d release"
 deploy:
   provider: releases
   api_key:
