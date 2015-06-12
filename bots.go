@@ -114,8 +114,8 @@ func handleMessageYgbot(conn *irc.Conn, line *irc.Line) {
 
 
 func main() {
-	// Gentux (for concurency tests)
-	//go connect(channelName, "GentuxBot", handleMessageGuilhem)
+	// Yves
+	go connect(channelName, "Ygbot", handleMessageYgbot)
 	// Guilhem
 	connect(channelName, "GuilhemBot", handleMessageGuilhem)
 }
