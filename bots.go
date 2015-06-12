@@ -4,7 +4,7 @@ import irc "github.com/fluffle/goirc/client"
 import "math/rand"
 import "regexp"
 
-const channelName = "#poc_beta_test"
+const channelName = "#iaas-bots"
 
 // Guilhem Bot core
 func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
@@ -51,7 +51,6 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		)
 	}
 }
-
 
 // ygbo Bot core
 func handleMessageYgbot(conn *irc.Conn, line *irc.Line) {
