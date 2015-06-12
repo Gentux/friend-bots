@@ -19,6 +19,7 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		"'Tain IRC ! Protocole de merde ! Je vais mettre en place un XM Peuh Peuh",
 		"Non mais ça c'est soooo 2011 !",
 		"Les mecs de chez […] ont rien compris, j'te fouterai tout le monde à la porte moi.",
+		"Désolé d'avoir raison",
 	}
 
 	personalAnswers := []string{
@@ -33,6 +34,7 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		"Il faut que je me sente… Important",
 		"Oula oui, au moins ça !",
 		"«rm -Rf de-toute-l-équipe», oui !",
+		"Nan, mais j'illumine la tour eiffel depuis chez moi !",
 	}
 
 	openstackRegexp, _ := regexp.Compile("jarvis|openstack|keystone|deploy|datacenter|bug|meeting|horizon|glance|cinder|contrail|coreos|dc|nova|neutron")
@@ -112,6 +114,16 @@ func handleMessageYgbot(conn *irc.Conn, line *irc.Line) {
 	}
 }
 
+// Carot Bot core
+func handleMessageCarot(conn *irc.Conn, line *irc.Line) {
+	// J'vais t'peter la gueule
+	// Tu veux t'battre ?
+	// Oh, il est beau ton bleu !
+	// Chocolat !
+	// Est-ce que t'es bon au baby ?
+	// Demain, j'raméne des cookies
+	// On va boire une biére vite fait ce soir ?
+}
 
 func main() {
 	// Yves
