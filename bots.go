@@ -114,11 +114,19 @@ func handleMessageYgbot(conn *irc.Conn, line *irc.Line) {
 
 // Carot Bot core
 func handleMessageCarot(conn *irc.Conn, line *irc.Line) {
-	// J'vais t'peter la gueule
-	// Tu veux t'battre ?
-	// Oh, il est beau ton bleu !
-	// Chocolat !
-	// Est-ce que t'es bon au baby ?
-	// Demain, j'raméne des cookies
-	// On va boire une biére vite fait ce soir ?
+	answers := []string{
+		"J'vais t'peter la gueule",
+		"Tu veux t'battre ?",
+		"Oh, il est beau ton bleu !",
+		"Chocolat !?",
+		"Est-ce que t'es bon au baby ?",
+		"Demain, j'raméne des cookies",
+		"On va boire une biére vite fait ce soir ?",
+	}
+
+	randomLine := rand.Intn(30)
+	if randomLine < 3 {
+		conn.Privmsg(channelName, answers[rand.Intn(len(answers))])
+	}
+
 }
