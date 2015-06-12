@@ -18,6 +18,21 @@ friend_bots
 If it doesn't work, it's normal, I havn't tested it yet.
 Don't hesitate to tell me what's wrong and I'll do whatever I can to unlock the situation
 
+## Configuration ##
+
+If config file doesn't exist, friend_bots will create on in your home directory : *~/.friendbotsrc*
+
+```
+{
+	"Server": "irc.freenode.net",
+	"Port": 7000,
+	"SSL": false,
+	"SSLInsecureSkipVerify": false,
+	"Pass": "secret",
+	"ChannelName": "#chan"
+}
+```
+
 ## Why GO ##
 
 There is two main reason I started using go :
