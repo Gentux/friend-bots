@@ -4,8 +4,6 @@ import irc "github.com/fluffle/goirc/client"
 import "math/rand"
 import "regexp"
 
-const channelName = "#iaas-bots"
-
 // Guilhem Bot core
 func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 	technicalAnswers := []string{
@@ -123,11 +121,4 @@ func handleMessageCarot(conn *irc.Conn, line *irc.Line) {
 	// Est-ce que t'es bon au baby ?
 	// Demain, j'raméne des cookies
 	// On va boire une biére vite fait ce soir ?
-}
-
-func main() {
-	// Yves
-	go connect(channelName, "Ygbot", handleMessageYgbot)
-	// Guilhem
-	connect(channelName, "GuilhemBot", handleMessageGuilhem)
 }

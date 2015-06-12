@@ -1,24 +1,25 @@
 package main
 
-//import "crypto/tls"
-import "fmt"
+import "crypto/tls"
+import "log"
 import irc "github.com/fluffle/goirc/client"
 
+var channelName string
+
 func connect(
-	channelName string,
+	config configuration,
 	channelNick string,
 	callback func(conn *irc.Conn, line *irc.Line),
 ) {
 	cfg := irc.NewConfig(channelNick)
-	cfg.SSL = true
-	//cfg.SSLConfig = &tls.Config{InsecureSkipVerify: true}
-	cfg.Server = "irc.freenode.net:7000"
-	//cfg.Pass = "secret"
+	cfg.SSL = config.SSL
+	cfg.SSLConfig = &tls.Config{InsecureSkipVerify: config.SSLInsecureSkipVerify}
+	cfg.Server = config.Server
+	cfg.Pass = config.Pass
 	cfg.NewNick = func(n string) string { return n + "^" }
 	c := irc.Client(cfg)
 
-	// Add handlers to do things here!
-	// e.g. join a channel on connect.
+	channelName = config.ChannelName
 	c.HandleFunc("connected", joinChannel)
 
 	c.HandleFunc("privmsg", callback)
@@ -32,9 +33,9 @@ func connect(
 
 	// Tell client to connect.
 	if err := c.Connect(); err != nil {
-		fmt.Println("Connection error: %s\n", err)
+		log.Fatalf("Connection error: %s\n", err)
 	} else {
-		fmt.Println("Connected")
+		log.Print("Connected")
 	}
 
 	// Wait for disconnect
