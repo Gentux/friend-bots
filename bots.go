@@ -56,8 +56,10 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 func handleMessageYgbot(conn *irc.Conn, line *irc.Line) {
 	technicalAnswers := []string{
 		"Ça a été codé avec le cul!",
-		"C'est fait par un mec qu'a le QI d'un annus artificiel!",
+		"C'est fait par un mec qu'a le QI d'un anus artificiel!",
 		"J'y crois pas! jamais vu une horreur pareille!",
+		"Une GUI pensée avec un QI minimum est sensé être plus simple que la CLI, si la CLI est plus simple, c'est que la target de la GUI est ratée!",
+		"Les paquets Debian sont au développement ce que les cartons d'emballage sont aux meubles Ikéa.",
 	}
 
 	personalAnswers := []string{
@@ -81,7 +83,7 @@ func handleMessageYgbot(conn *irc.Conn, line *irc.Line) {
 		"t'ain d'clavire!",
 	}
 
-	openstackRegexp, _ := regexp.Compile("javascript|JavaScript|bug|git")
+	openstackRegexp, _ := regexp.Compile("(?i)javascript|bug|git|kibana|jira|selenium|packaging|kde|unity")
 	technicalPoint := openstackRegexp.FindString(line.Text())
 	randomLine := rand.Intn(30)
 
