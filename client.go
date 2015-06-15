@@ -2,7 +2,7 @@ package main
 
 import "crypto/tls"
 import "log"
-import irc "github.com/fluffle/goirc/client"
+import irc "github.com/gentux/goirc/client"
 
 var channelName string
 
