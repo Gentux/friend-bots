@@ -129,5 +129,44 @@ func handleMessageCarot(conn *irc.Conn, line *irc.Line) {
 	if randomLine < 3 {
 		conn.Privmsg(channelName, answers[rand.Intn(len(answers))])
 	}
+}
 
+// VBAbot Bot core
+func handleMessageVBAbot(conn *irc.Conn, line *irc.Line) {
+	technicalAnswers := []string{
+		"Un truc codé avec emacs par un manchot !",
+		"Evidemment c est encore la faute aux sysadmins :(",
+		"Ils auraient du le faire en cobol !",
+		"Cette bouse me reveille toutes les nuits !",
+		"As tu teste en dev ? integration ? staging ?",
+		"Dans le doute reboot ?",
+		"Et si on le recodait en LISP ?",
+	}
+
+	personalAnswers := []string{
+		"ASV ?",
+		"L'informatique dans les nuages..",
+		"Jamais le vendredi",
+		"R IP",
+		"Oui ce serait effectivement mieux avec jabber",
+		"Ce sera en salle cumulonimbus",
+	}
+
+	techRegexp, _ := regexp.Compile("opencontrail|contrail|neutron|django|nova|nagios|kibana|bss|prod|staging|integration|irc|bot")
+	technicalPoint := techRegexp.FindString(line.Text())
+	randomLine := rand.Intn(30)
+
+	if technicalPoint != "" {
+		randomAnswer := rand.Intn(len(technicalAnswers))
+		conn.Privmsg(
+			channelName,
+			technicalAnswers[randomAnswer],
+		)
+	} else if randomLine < 3 {
+		randomAnswer := rand.Intn(len(personalAnswers))
+		conn.Privmsg(
+			channelName,
+			personalAnswers[randomAnswer],
+		)
+	}
 }

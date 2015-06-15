@@ -67,6 +67,8 @@ func main() {
 	go connect(config, "Ygbot", handleMessageYgbot)
 	// Caro
 	go connect(config, "Carot", handleMessageCarot)
+	// Vincent
+	go connect(config, "VBAbot", handleMessageVBAbot)
 	// Guilhem
 	connect(config, "GuilhemBot", handleMessageGuilhem)
 }
