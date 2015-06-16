@@ -1,6 +1,6 @@
 package main
 
-import irc "github.com/gentux/goirc/client"
+import irc "github.com/fluffle/goirc/client"
 import "math/rand"
 import "regexp"
 
