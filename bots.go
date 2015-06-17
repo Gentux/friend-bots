@@ -37,7 +37,7 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 
 	openstackRegexp, _ := regexp.Compile("(?i)jarvis|openstack|keystone|deploy|datacenter|bug|meeting|horizon|glance|cinder|contrail|coreos|dc|nova|neutron")
 	technicalPoint := openstackRegexp.FindString(line.Text())
-	randomLine := rand.Intn(30)
+	randomLine := rand.Intn(40)
 
 	if technicalPoint != "" {
 		conn.Privmsg(
@@ -85,7 +85,7 @@ func handleMessageYgbot(conn *irc.Conn, line *irc.Line) {
 
 	openstackRegexp, _ := regexp.Compile("(?i)javascript|bug|git|kibana|jira|selenium|packaging|kde|unity")
 	technicalPoint := openstackRegexp.FindString(line.Text())
-	randomLine := rand.Intn(30)
+	randomLine := rand.Intn(40)
 
 	if technicalPoint != "" {
 		randomAnswer := rand.Intn(len(technicalAnswers))
@@ -128,7 +128,7 @@ func handleMessageCarot(conn *irc.Conn, line *irc.Line) {
 		"Y a des croissants chez BSS :)",
 	}
 
-	randomLine := rand.Intn(30)
+	randomLine := rand.Intn(40)
 	if randomLine < 3 {
 		conn.Privmsg(channelName, answers[rand.Intn(len(answers))])
 	}
@@ -157,7 +157,7 @@ func handleMessageVBAbot(conn *irc.Conn, line *irc.Line) {
 
 	techRegexp, _ := regexp.Compile("(?i)opencontrail|contrail|neutron|django|nova|nagios|kibana|bss|prod|staging|integration|irc|bot")
 	technicalPoint := techRegexp.FindString(line.Text())
-	randomLine := rand.Intn(30)
+	randomLine := rand.Intn(40)
 
 	if technicalPoint != "" {
 		randomAnswer := rand.Intn(len(technicalAnswers))
