@@ -1,0 +1,25 @@
+{
+	"ImportPath": "github.com/gentux/friend-bots",
+	"GoVersion": "go1.4.2",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/gentux/goirc/client",
+			"Rev": "8f6d4cb4b094ea9b44d9f98a662a48f70d7e09ee"
+		},
+		{
+			"ImportPath": "github.com/gentux/goirc/logging",
+			"Rev": "8f6d4cb4b094ea9b44d9f98a662a48f70d7e09ee"
+		},
+		{
+			"ImportPath": "github.com/gentux/goirc/state",
+			"Rev": "8f6d4cb4b094ea9b44d9f98a662a48f70d7e09ee"
+		},
+		{
+			"ImportPath": "github.com/golang/mock/gomock",
+			"Rev": "15f8b22550555c0d3edf5afa97d74001bda2208b"
+		}
+	]
+}
