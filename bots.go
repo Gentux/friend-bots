@@ -35,7 +35,7 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		"Nan, mais j'illumine la tour eiffel depuis chez moi !",
 	}
 
-	openstackRegexp, _ := regexp.Compile("jarvis|openstack|keystone|deploy|datacenter|bug|meeting|horizon|glance|cinder|contrail|coreos|dc|nova|neutron")
+	openstackRegexp, _ := regexp.Compile("(?i)jarvis|openstack|keystone|deploy|datacenter|bug|meeting|horizon|glance|cinder|contrail|coreos|dc|nova|neutron")
 	technicalPoint := openstackRegexp.FindString(line.Text())
 	randomLine := rand.Intn(30)
 
@@ -125,6 +125,7 @@ func handleMessageCarot(conn *irc.Conn, line *irc.Line) {
 		"Demain, j'ramène des cookies",
 		"On va boire une bière vite fait ce soir ?",
 		"Lâche pas les manettes !!",
+		"Y a des croissants chez BSS :)",
 	}
 
 	randomLine := rand.Intn(30)
@@ -154,7 +155,7 @@ func handleMessageVBAbot(conn *irc.Conn, line *irc.Line) {
 		"Ce sera en salle cumulonimbus",
 	}
 
-	techRegexp, _ := regexp.Compile("opencontrail|contrail|neutron|django|nova|nagios|kibana|bss|prod|staging|integration|irc|bot")
+	techRegexp, _ := regexp.Compile("(?i)opencontrail|contrail|neutron|django|nova|nagios|kibana|bss|prod|staging|integration|irc|bot")
 	technicalPoint := techRegexp.FindString(line.Text())
 	randomLine := rand.Intn(30)
 
