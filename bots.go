@@ -144,15 +144,22 @@ func handleMessageVBAbot(conn *irc.Conn, line *irc.Line) {
 		"As tu teste en dev ? integration ? staging ?",
 		"Dans le doute reboot ?",
 		"Et si on le recodait en LISP ?",
+		"As tu fait le ticket pour ce change ?",
+		"VMware !",
+		"Faudrait refactor le cookbook au fait :)",
+		"Mieux vaut tar que gz",
+		"C'est un René Pierre !",
+		"Et bim…",
 	}
 
 	personalAnswers := []string{
 		"ASV ?",
-		"L'informatique dans les nuages..",
-		"Jamais le vendredi",
-		"R IP",
+		"L'informatique dans les nuages…",
+		"Jamais le vendredi !",
 		"Oui ce serait effectivement mieux avec jabber",
 		"Ce sera en salle cumulonimbus",
+		"J'aime pas les cookies a la cachuete.",
+		"Plus, mieux, mais moins cher !",
 	}
 
 	techRegexp, _ := regexp.Compile("(?i)opencontrail|contrail|neutron|django|nova|nagios|kibana|bss|prod|staging|integration|irc|bot")
