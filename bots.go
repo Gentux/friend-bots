@@ -126,6 +126,10 @@ func handleMessageCarot(conn *irc.Conn, line *irc.Line) {
 		"On va boire une bière vite fait ce soir ?",
 		"Lâche pas les manettes !!",
 		"Y a des croissants chez BSS :)",
+		"Faut la rouler sous les pieds",
+		"Tu me dois une bière !",
+		"T'es pas sur l'IRC !",
+		"C'est toi le [...] !",
 	}
 
 	randomLine := rand.Intn(40)
