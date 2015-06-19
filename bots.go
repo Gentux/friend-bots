@@ -116,6 +116,18 @@ func handleMessageYgbot(conn *irc.Conn, line *irc.Line) {
 
 // Carot Bot core
 func handleMessageCarot(conn *irc.Conn, line *irc.Line) {
+	technicalAnswers := []string{
+		"La test suite est rouge, mais ça a marché",
+		"Adil, le front est lent !",
+		"J'peux pas valider la story, il manque un accent circonflexe...",
+		"Chez moi ça marche, donc c'est bon",
+		"C'est pas automatisable. On ne peut pas valider la story.",
+		"Regarde dans 2 minutes",
+		"C'est KO, mais c'est OK",
+		"Vide ton cache",
+		"Relance ton navigateur",
+		"C'est pas un bug, c'est une feature...",
+	}
 	answers := []string{
 		"J'vais t'peter la gueule",
 		"Tu veux t'battre ?",
@@ -133,9 +145,21 @@ func handleMessageCarot(conn *irc.Conn, line *irc.Line) {
 	}
 
 	randomLine := rand.Intn(40)
-	if randomLine < 3 {
-		conn.Privmsg(channelName, answers[rand.Intn(len(answers))])
+	openstackRegexp, _ := regexp.Compile("(?i)selenium|test suite|stg0|dev32|jira|dev37|bug|story|front|billing|CRM")
+	technicalPoint := openstackRegexp.FindString(line.Text())
+	
+	if technicalPoint != "" {
+		conn.Privmsg(
+			channelName,
+			technicalAnswers[rand.Intn(len(technicalAnswers))],
+		)
+	} else if randomLine < 3 {
+		conn.Privmsg(
+			channelName,
+			personalAnswers[rand.Intn(len(personalAnswers))],
+		)
 	}
+	
 }
 
 // VBAbot Bot core
