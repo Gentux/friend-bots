@@ -128,7 +128,7 @@ func handleMessageCarot(conn *irc.Conn, line *irc.Line) {
 		"Relance ton navigateur",
 		"C'est pas un bug, c'est une feature...",
 	}
-	answers := []string{
+	personalAnswers := []string{
 		"J'vais t'peter la gueule",
 		"Tu veux t'battre ?",
 		"Oh, il est beau ton bleu !",
@@ -146,20 +146,22 @@ func handleMessageCarot(conn *irc.Conn, line *irc.Line) {
 
 	randomLine := rand.Intn(40)
 	openstackRegexp, _ := regexp.Compile("(?i)selenium|test suite|stg0|dev32|jira|dev37|bug|story|front|billing|CRM")
+	personalRegexp, _ := regexp.Compile("(?i)biere|chocolat|battre|baby|foot")
 	technicalPoint := openstackRegexp.FindString(line.Text())
-	
+	personalPoint := personalRegexp.FindString(line.Text())
+
 	if technicalPoint != "" {
 		conn.Privmsg(
 			channelName,
 			technicalAnswers[rand.Intn(len(technicalAnswers))],
 		)
-	} else if randomLine < 3 {
+	} else if randomLine < 3 || personalPoint != "" {
 		conn.Privmsg(
 			channelName,
 			personalAnswers[rand.Intn(len(personalAnswers))],
 		)
 	}
-	
+
 }
 
 // VBAbot Bot core
