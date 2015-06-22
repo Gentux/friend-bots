@@ -18,6 +18,7 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		"Non mais ça c'est soooo 2011 !",
 		"Les mecs de chez […] ont rien compris, j'te fouterai tout le monde à la porte moi.",
 		"Désolé d'avoir raison",
+		"Je ne veux pas d'un consensus mou",
 	}
 
 	personalAnswers := []string{
