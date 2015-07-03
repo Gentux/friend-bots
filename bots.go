@@ -34,6 +34,7 @@ func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 		"Oula oui, au moins ça !",
 		"«rm -Rf de-toute-l-équipe», oui !",
 		"Nan, mais j'illumine la tour eiffel depuis chez moi !",
+		"Si tu penses pas que tes exceptionel, personne le penseras pour toi !",
 	}
 
 	openstackRegexp, _ := regexp.Compile("(?i)jarvis|openstack|keystone|deploy|datacenter|bug|meeting|horizon|glance|cinder|contrail|coreos|dc|nova|neutron")
