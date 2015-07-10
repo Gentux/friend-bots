@@ -168,22 +168,6 @@ func handleMessageCarot(conn *irc.Conn, line *irc.Line) {
 
 // VBAbot Bot core
 func handleMessageVBAbot(conn *irc.Conn, line *irc.Line) {
-	technicalAnswers := []string{
-		"Un truc codé avec emacs par un manchot !",
-		"Evidemment c est encore la faute aux sysadmins :(",
-		"Ils auraient du le faire en cobol !",
-		"Cette bouse me reveille toutes les nuits !",
-		"As tu teste en dev ? integration ? staging ?",
-		"Dans le doute reboot ?",
-		"Et si on le recodait en LISP ?",
-		"As tu fait le ticket pour ce change ?",
-		"VMware !",
-		"Faudrait refactor le cookbook au fait :)",
-		"Mieux vaut tar que gz",
-		"C'est un René Pierre !",
-		"Et bim…",
-	}
-
 	personalAnswers := []string{
 		"ASV ?",
 		"L'informatique dans les nuages…",
@@ -199,10 +183,9 @@ func handleMessageVBAbot(conn *irc.Conn, line *irc.Line) {
 	randomLine := rand.Intn(40)
 
 	if technicalPoint != "" {
-		randomAnswer := rand.Intn(len(technicalAnswers))
 		conn.Privmsg(
 			channelName,
-			technicalAnswers[randomAnswer],
+			GetPipo(),
 		)
 	} else if randomLine < 3 {
 		randomAnswer := rand.Intn(len(personalAnswers))
