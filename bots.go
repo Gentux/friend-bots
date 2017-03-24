@@ -8,6 +8,7 @@ import "regexp"
 func handleMessageGuilhem(conn *irc.Conn, line *irc.Line) {
 	technicalAnswers := []string{
 		"Mais ! C'est de la merde !",
+		"Laisse tomber, de toutes manières on va le réécrire en GO...",
 		"On doit le réecrire en GO ça !",
 		"Mais c'est pas du tout ça le problème, en fait […]",
 		"C'est fait roulé sous les aisselles",
